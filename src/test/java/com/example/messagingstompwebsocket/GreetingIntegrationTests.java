@@ -2,6 +2,7 @@ package com.example.messagingstompwebsocket;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import com.example.messagingstompwebsocket.domain.Greeting;
 import java.lang.reflect.Type;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;

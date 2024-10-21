@@ -1,19 +1,22 @@
 package com.example.messagingstompwebsocket;
 
+import com.example.messagingstompwebsocket.domain.Greeting;
+import com.example.messagingstompwebsocket.service.GreetingService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.util.HtmlUtils;
 
 @Controller
+@RequiredArgsConstructor
 public class GreetingController {
 
+	private final GreetingService greetingService;
 
 	@MessageMapping("/hello")
 	@SendTo("/topic/greetings")
-	public Greeting greeting(HelloMessage message) throws Exception {
-		Thread.sleep(1000); // simulated delay
-		return new Greeting("Hello, " + HtmlUtils.htmlEscape(message.getName()) + "!");
+	public Greeting greeting(HelloMessage message) {
+		return greetingService.greet(message);
 	}
 
 }
