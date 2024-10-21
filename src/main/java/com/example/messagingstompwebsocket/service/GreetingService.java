@@ -14,10 +14,8 @@ public class GreetingService {
 
     private final GreetingRepository greetingRepository;
 
-
     @Transactional
     public Greeting greet(HelloMessage message) {
-        var greeting = new Greeting("Hello, " + HtmlUtils.htmlEscape(message.getName()) + "!");
-        return greetingRepository.save(greeting);
+        return greetingRepository.addGreeting("Hello, " + HtmlUtils.htmlEscape(message.getName()) + "!");
     }
 }

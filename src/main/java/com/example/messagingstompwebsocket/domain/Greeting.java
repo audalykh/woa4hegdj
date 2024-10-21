@@ -17,10 +17,6 @@ public class Greeting {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "content", nullable = false, length = 255)
+    @Column(name = "content", nullable = false)
 	private String content;
-
-    public Greeting(String content) {
-        this.content = content;
-    }
 }
